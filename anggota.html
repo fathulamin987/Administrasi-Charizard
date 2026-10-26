@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Anggota - Regu Charizard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body data-page="anggota.html">
+  <main class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Regu Charizard</div>
+      <h2>Biodata <span class="grad-text">Anggota</span></h2>
+      <p>10 Anggota Penggalang Aktif Regu Charizard</p>
+    </div>
+    <div class="grid members" id="members"></div>
+  </main>
+
+  <script src="assets/app.js"></script>
+  <script>
+    /* Data Lengkap 10 Anggota Regu Charizard */
+    const anggota = [
+      { 
+        nama: "Wiro Ali", 
+        role: "PINRU", 
+        jab: "Pemimpin Regu", 
+        ttl: "Sampang, 24 April 2012", 
+        alamat: "Dusun Dajaan Timur, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/ali.png", 
+         c: ["#374151", "#6b7280"] 
+      },
+      { 
+        nama: "Salim", 
+        role: "WAPINRU", 
+        jab: "Wakil Pemimpin Regu", 
+        ttl: "Sampang, 23 Mei 2011", 
+        alamat: "Dusun Dajaan Barat, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/salim.png", 
+        c: ["#374151", "#6b7280"] 
+      },
+      { 
+        nama: "Muhammad Yusron", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 5 November 2011", 
+        alamat: "Dusun Dajaan Barat, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/yusron.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      },
+
+      { 
+        nama: "Syd. Abdurrahman Zain Assegaf", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 31 Maret 2012", 
+        alamat: "Dusun Bendung, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/zain.png", 
+        c: ["#7f1d1d", "#c2410c"]
+      },
+      { 
+        nama: "Syd. Ubaydillah", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 4 November 2011", 
+        alamat: "Dusun Duko, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/ubay.png", 
+        c: ["#7f1d1d", "#c2410c"]
+      },
+
+
+      { 
+        nama: "Moh. Anwar", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 20 November 2012", 
+        alamat: "Dusun Plenggiyan, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/anwar.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      },
+      { 
+        nama: "Ahmad Jeilani", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 27 Oktober 2012", 
+        alamat: "Dusun Bendung, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/ajay.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      },
+      { 
+        nama: "Kevin", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 15 Mei 2012", 
+        alamat: "Dusun Dempol, Kecamatan Jrengik, Kabupaten Sampang", 
+        foto: "assets/kevin.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      },
+      { 
+        nama: "Seipul Anam", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 04 Agustus 2011", 
+        alamat: "Dusun Jamgalis, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/seipul.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      },
+      { 
+        nama: "M. Ramadani", 
+        role: "ANGGOTA", 
+        jab: "Anggota Regu", 
+        ttl: "Sampang, 14 Agustus 2012", 
+        alamat: "Dusun Bendung, Kecamatan Tambelangan, Kabupaten Sampang", 
+        foto: "assets/dhani.png", 
+        c: ["#7f1d1d", "#c2410c"] 
+      }
+    ];
+
+    /* Render kartu anggota ke HTML */
+    document.getElementById("members").innerHTML = anggota.map((a, i) => `
+      <article class="glass member reveal" style="--d:${(i % 3) * 100}ms;--c1:${a.c[0]};--c2:${a.c[1]}">
+        <div class="top">
+          <span class="no">#${String(i + 1).padStart(2, "0")}</span>
+          <span class="role">${a.role}</span>
+        </div>
+        <div class="body">
+          <div class="photo">
+            ${a.foto ? `<img src="${a.foto}" alt="${a.nama}">` : `<div><i class="fa-solid fa-user"></i><small>FOTO 3x4</small></div>`}
+          </div>
+          <h3>${a.nama}</h3>
+          <span class="sub">${a.jab}</span>
+          <div class="info">
+            <p><i class="fa-solid fa-cake-candles"></i><span><strong>TTL:</strong> ${a.ttl}</span></p>
+            <p><i class="fa-solid fa-location-dot"></i><span><strong>Alamat:</strong> ${a.alamat}</span></p>
+          </div>
+        </div>
+      </article>
+    `).join("");
+
+    observeReveals(); 
+    bindFx();
+  </script>
+</body>
+
+</html>
