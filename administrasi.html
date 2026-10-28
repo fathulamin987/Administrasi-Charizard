@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrasi - Regu Charizard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .admin-sec { padding: 32px; margin-bottom: 30px; }
+    .admin-sec h3 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .admin-sec h3 i { color: var(--orange); }
+
+    /* Tabel & Scroll Layout */
+    .table-scroll { width: 100%; overflow-x: auto; margin-top: 14px; }
+    .regu-table { width: 100%; border-collapse: collapse; font-size: 13.5px; white-space: nowrap; }
+    .regu-table th, .regu-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+    .regu-table th { color: var(--orange); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; background: rgba(0, 0, 0, 0.2); }
+    .regu-table tr:last-child td { border-bottom: none; }
+    .regu-table tr.total-row { font-weight: 800; color: var(--yellow); background: rgba(255, 201, 51, 0.08); }
+
+    /* Badge Presensi */
+    .badge-pres { display: inline-block; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 11px; text-align: center; }
+    .badge-pres.h { background: rgba(52, 211, 153, 0.2); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.4); }
+    .badge-pres.i { background: rgba(255, 201, 51, 0.2); color: var(--yellow); border: 1px solid rgba(255, 201, 51, 0.4); }
+    .badge-pres.a { background: rgba(225, 29, 46, 0.2); color: #ff8b94; border: 1px solid rgba(225, 29, 46, 0.4); }
+    .badge-pres.merah { background: #e11d2e; color: #fff; width: 100%; min-width: 24px; min-height: 18px; }
+    .badge-pres.oranye { background: #ff7a1a; color: #fff; width: 100%; min-width: 24px; min-height: 18px; }
+    
+    .ket-note { font-size: 12px; color: var(--muted); margin-top: 10px; font-style: italic; display: flex; align-items: center; gap: 8px; }
+    .ket-note span { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+
+    /* Frame Gambar Surat & Kuitansi */
+    .grid-img { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
+    .img-box { background: rgba(0,0,0,0.3); border: 1px solid var(--line); border-radius: 16px; padding: 12px; text-align: center; }
+    .img-box img { width: 100%; height: auto; border-radius: 10px; object-fit: contain; display: block; }
+    .img-box span { display: block; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--muted); }
+  </style>
+</head>
+<body data-page="administrasi.html">
+  <main class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Dokumen Resmi</div>
+      <h2>Berkas <span class="grad-text">Administrasi Regu</span></h2>
+      <p>Portal ini memuat rekapitulasi absensi, buku keuangan, dan buku kegiatan Regu Charizard yang di-update hingga kegiatan terakhir sebelum mengikuti lomba PARISADA XXI 2026.</p>
+    </div>
+
+    <!-- 1. SURAT TUGAS MANDAT -->
+    <article class="glass admin-sec reveal" data-tilt="off">
+      <h3><i class="fa-solid fa-file-signature"></i> Surat Tugas Mandat Pangkalan</h3>
+      <div class="grid-img">
+        <div class="img-box">
+          <img src="assets/surat-bindamping.png" alt="Surat Mandat Bindamping" onerror="this.src='https://via.placeholder.com/600x850/1a0d0f/ff7a1a?text=Surat+Mandat+Bindamping'">
+          <span>1. Surat Mandat Bindamping</span>
+        </div>
+        <div class="img-box">
+          <img src="assets/surat-peserta.png" alt="Surat Mandat Peserta" onerror="this.src='https://via.placeholder.com/600x850/1a0d0f/ff7a1a?text=Surat+Mandat+Peserta'">
+          <span>2. Surat Mandat Peserta Regu</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. ABSENSI REGU -->
+    <article class="glass admin-sec reveal" data-tilt="off">
+      <h3><i class="fa-solid fa-clipboard-user"></i> Absensi Latihan Regu</h3>
+      
+      <!-- Juli 2026 -->
+      <h4 style="color:var(--yellow); margin-top:15px; font-size:15px;">Juli 2026</h4>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:40px;">No.</th>
+              <th rowspan="2">Nama</th>
+              <th rowspan="2">Kelas</th>
+              <th rowspan="2">Tingkatan</th>
+              <th colspan="4" style="text-align:center;">Kehadiran</th>
+            </tr>
+            <tr>
+              <th style="text-align:center;">1</th>
+              <th style="text-align:center;">2</th>
+              <th style="text-align:center;">3</th>
+              <th style="text-align:center;">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><b>Wiro Ali</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres i">I</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>2</td><td><b>Salim</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>3</td><td>Muhammad Yusron</td><td>IX</td><td>Terap</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>4</td><td>Syd. Abdurrahman Zain A.</td><td>VIII</td><td>Terap</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>5</td><td>Syd. Ubaydillah</td><td>VIII</td><td>Terap</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>6</td><td>Moh. Anwar</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>7</td><td>Ahmad Jeilani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres a">A</span></td></tr>
+            <tr><td>8</td><td>Kevin</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>9</td><td>Seipul Anam</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>10</td><td>M. Ramadani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres merah"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres a">A</span></td><td><span class="badge-pres h">H</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ket-note"><span style="background:#e11d2e;"></span> Tanda Merah : Belum Masuk Semester</p>
+
+      <!-- Agustus 2026 -->
+      <h4 style="color:var(--yellow); margin-top:25px; font-size:15px;">Agustus 2026</h4>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:40px;">No.</th>
+              <th rowspan="2">Nama</th>
+              <th rowspan="2">Kelas</th>
+              <th rowspan="2">Tingkatan</th>
+              <th colspan="4" style="text-align:center;">Kehadiran</th>
+            </tr>
+            <tr>
+              <th style="text-align:center;">1</th>
+              <th style="text-align:center;">2</th>
+              <th style="text-align:center;">3</th>
+              <th style="text-align:center;">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><b>Wiro Ali</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>2</td><td><b>Salim</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres i">I</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>3</td><td>Muhammad Yusron</td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>4</td><td>Syd. Abdurrahman Zain A.</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres i">I</span></td></tr>
+            <tr><td>5</td><td>Syd. Ubaydillah</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>6</td><td>Moh. Anwar</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>7</td><td>Ahmad Jeilani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>8</td><td>Kevin</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>9</td><td>Seipul Anam</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>10</td><td>M. Ramadani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres oranye"></span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ket-note"><span style="background:#ff7a1a;"></span> Keterangan: Upacara Peringatan Hari Pramuka ke-65 di lingkungan Khairul Ulum.</p>
+
+      <!-- September 2026 -->
+      <h4 style="color:var(--yellow); margin-top:25px; font-size:15px;">September 2026</h4>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:40px;">No.</th>
+              <th rowspan="2">Nama</th>
+              <th rowspan="2">Kelas</th>
+              <th rowspan="2">Tingkatan</th>
+              <th colspan="4" style="text-align:center;">Kehadiran</th>
+            </tr>
+            <tr>
+              <th style="text-align:center;">1</th>
+              <th style="text-align:center;">2</th>
+              <th style="text-align:center;">3</th>
+              <th style="text-align:center;">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><b>Wiro Ali</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>2</td><td><b>Salim</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>3</td><td>Muhammad Yusron</td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>4</td><td>Syd. Abdurrahman Zain A.</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>5</td><td>Syd. Ubaydillah</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres a">A</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>6</td><td>Moh. Anwar</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>7</td><td>Ahmad Jeilani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>8</td><td>Kevin</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>9</td><td>Seipul Anam</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>10</td><td>M. Ramadani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Oktober 2026 -->
+      <h4 style="color:var(--yellow); margin-top:25px; font-size:15px;">Oktober 2026</h4>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:40px;">No.</th>
+              <th rowspan="2">Nama</th>
+              <th rowspan="2">Kelas</th>
+              <th rowspan="2">Tingkatan</th>
+              <th colspan="4" style="text-align:center;">Kehadiran</th>
+            </tr>
+            <tr>
+              <th style="text-align:center;">1</th>
+              <th style="text-align:center;">2</th>
+              <th style="text-align:center;">3</th>
+              <th style="text-align:center;">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><b>Wiro Ali</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>2</td><td><b>Salim</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>3</td><td>Muhammad Yusron</td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>4</td><td>Syd. Abdurrahman Zain A.</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>5</td><td>Syd. Ubaydillah</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>6</td><td>Moh. Anwar</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres i">I</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>7</td><td>Ahmad Jeilani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>8</td><td>Kevin</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres a">A</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>9</td><td>Seipul Anam</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td></tr>
+            <tr><td>10</td><td>M. Ramadani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres h">H</span></td><td><span class="badge-pres a">A</span></td><td><span class="badge-pres h">H</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- November 2026 -->
+      <h4 style="color:var(--yellow); margin-top:25px; font-size:15px;">November 2026</h4>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:40px;">No.</th>
+              <th rowspan="2">Nama</th>
+              <th rowspan="2">Kelas</th>
+              <th rowspan="2">Tingkatan</th>
+              <th colspan="4" style="text-align:center;">Kehadiran</th>
+            </tr>
+            <tr>
+              <th style="text-align:center;">1</th>
+              <th style="text-align:center;">2</th>
+              <th style="text-align:center;">3</th>
+              <th style="text-align:center;">4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><b>Wiro Ali</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>2</td><td><b>Salim</b></td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>3</td><td>Muhammad Yusron</td><td>IX</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>4</td><td>Syd. Abdurrahman Zain A.</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>5</td><td>Syd. Ubaydillah</td><td>VIII</td><td>Terap</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>6</td><td>Moh. Anwar</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>7</td><td>Ahmad Jeilani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>8</td><td>Kevin</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres i">I</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>9</td><td>Seipul Anam</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres a">A</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+            <tr><td>10</td><td>M. Ramadani</td><td>VIII</td><td>Rakit</td><td><span class="badge-pres h">H</span></td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td><td style="text-align:center; color:var(--muted);">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 3. BUKU KEUANGAN REGU -->
+    <article class="glass admin-sec reveal" data-tilt="off">
+      <h3><i class="fa-solid fa-wallet"></i> Buku Keuangan Regu</h3>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th style="width:40px;">No.</th>
+              <th>Tanggal</th>
+              <th>Keterangan</th>
+              <th>Pemasukan</th>
+              <th>Pengeluaran</th>
+              <th>Saldo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>18 Juli 2026</td><td>Iuran kas latihan 17 Juli</td><td>Rp20.000</td><td>—</td><td>Rp20.000</td></tr>
+            <tr><td>2</td><td>22 Juli 2026</td><td>Pembelian kertas HVS</td><td>—</td><td>Rp5.000</td><td>Rp15.000</td></tr>
+            <tr><td>3</td><td>25 Juli 2026</td><td>Iuran kas latihan 24 Juli</td><td>Rp20.000</td><td>—</td><td>Rp35.000</td></tr>
+            <tr><td>4</td><td>27 Juli 2026</td><td>Pembelian penggaris</td><td>—</td><td>Rp2.000</td><td>Rp33.000</td></tr>
+            <tr><td>5</td><td>1 Agustus 2026</td><td>Iuran kas latihan 31 Juli</td><td>Rp20.000</td><td>—</td><td>Rp53.000</td></tr>
+            <tr><td>6</td><td>8 Agustus 2026</td><td>Iuran kas latihan 7 Agustus</td><td>Rp20.000</td><td>—</td><td>Rp73.000</td></tr>
+            <tr><td>7</td><td>12 Agustus 2026</td><td>Persiapan upacara Hari Pramuka</td><td>—</td><td>Rp10.000</td><td>Rp63.000</td></tr>
+            <tr><td>8</td><td>15 Agustus 2026</td><td>Iuran kas latihan 14 Agustus</td><td>Rp20.000</td><td>—</td><td>Rp83.000</td></tr>
+            <tr><td>9</td><td>15 Agustus 2026</td><td>Apresiasi juara lomba antarregu</td><td>Rp100.000</td><td>—</td><td>Rp183.000</td></tr>
+            <tr><td>10</td><td>20 Agustus 2026</td><td>Pembelian tongkat Pramuka 4 buah</td><td>—</td><td>Rp40.000</td><td>Rp143.000</td></tr>
+            <tr><td>11</td><td>22 Agustus 2026</td><td>Iuran kas latihan 21 Agustus</td><td>Rp20.000</td><td>—</td><td>Rp163.000</td></tr>
+            <tr><td>12</td><td>29 Agustus 2026</td><td>Iuran kas latihan 28 Agustus</td><td>Rp20.000</td><td>—</td><td>Rp183.000</td></tr>
+            <tr><td>13</td><td>5 September 2026</td><td>Iuran kas latihan 4 September</td><td>Rp20.000</td><td>—</td><td>Rp203.000</td></tr>
+            <tr><td>14</td><td>10 September 2026</td><td>Pembelian alas tulis papan</td><td>—</td><td>Rp11.000</td><td>Rp192.000</td></tr>
+            <tr><td>15</td><td>12 September 2026</td><td>Iuran kas latihan 11 September</td><td>Rp20.000</td><td>—</td><td>Rp212.000</td></tr>
+            <tr><td>16</td><td>19 September 2026</td><td>Iuran kas latihan 18 September</td><td>Rp20.000</td><td>—</td><td>Rp232.000</td></tr>
+            <tr><td>17</td><td>26 September 2026</td><td>Iuran kas latihan 25 September</td><td>Rp20.000</td><td>—</td><td>Rp252.000</td></tr>
+            <tr><td>18</td><td>28 September 2026</td><td>Pembelian spidol dan pulpen</td><td>—</td><td>Rp13.000</td><td>Rp239.000</td></tr>
+            <tr><td>19</td><td>10 Oktober 2026</td><td>Iuran kas latihan 9 Oktober</td><td>Rp20.000</td><td>—</td><td>Rp259.000</td></tr>
+            <tr><td>20</td><td>14 Oktober 2026</td><td>Pembelian Air mineral</td><td>—</td><td>Rp12.000</td><td>Rp247.000</td></tr>
+            <tr><td>21</td><td>17 Oktober 2026</td><td>Iuran kas latihan 16 Oktober</td><td>Rp20.000</td><td>—</td><td>Rp267.000</td></tr>
+            <tr><td>22</td><td>23 Oktober 2026</td><td>Pembelian tali-temali 3 buah</td><td>—</td><td>Rp15.000</td><td>Rp252.000</td></tr>
+            <tr><td>23</td><td>24 Oktober 2026</td><td>Iuran kas latihan 23 Oktober</td><td>Rp20.000</td><td>—</td><td>Rp272.000</td></tr>
+            <tr class="total-row">
+              <td colspan="3" style="text-align:right;">TOTAL</td>
+              <td>Rp500.000</td>
+              <td>Rp108.000</td>
+              <td>Rp392.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 4. BUKU KEGIATAN REGU -->
+    <article class="glass admin-sec reveal" data-tilt="off">
+      <h3><i class="fa-solid fa-book-journal-whills"></i> Buku Kegiatan Regu</h3>
+      <div class="table-scroll">
+        <table class="regu-table">
+          <thead>
+            <tr>
+              <th style="width:40px;">No.</th>
+              <th>Tanggal</th>
+              <th>Kegiatan</th>
+              <th>Peserta</th>
+              <th>Tempat</th>
+              <th>Keterangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>17 Juli 2026</td><td>Latihan tali-temali dan simpul dasar</td><td>10 orang</td><td>Ruang Kelas IX</td><td>Latihan rutin</td></tr>
+            <tr><td>2</td><td>24 Juli 2026</td><td>Latihan semaphore</td><td>9 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>3</td><td>26 Juli 2026</td><td>Rapat Regu Charizard</td><td>10 orang</td><td>Sekretariat Sambarata</td><td>Rapat regu</td></tr>
+            <tr><td>4</td><td>31 Juli 2026</td><td>Latihan sandi-sandi Pramuka</td><td>9 orang</td><td>Sekretariat Sambarata</td><td>Latihan rutin</td></tr>
+            <tr><td>5</td><td>7 Agustus 2026</td><td>Latihan membuat yel-yel regu</td><td>10 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>6</td><td>14 Agustus 2026</td><td>Upacara Peringatan Hari Pramuka ke-65</td><td>10 orang</td><td>Khairul Ulum</td><td>Kegiatan khusus</td></tr>
+            <tr><td>7</td><td>16 Agustus 2026</td><td>Evaluasi bersama Pengurus Besar Sambarata</td><td>10 orang</td><td>Sekretariat Sambarata</td><td>Evaluasi</td></tr>
+            <tr><td>8</td><td>21 Agustus 2026</td><td>Latihan peta pita dan membaca arah</td><td>8 orang</td><td>Lingkungan sekitar pangkalan</td><td>Latihan rutin</td></tr>
+            <tr><td>9</td><td>28 Agustus 2026</td><td>Latihan pionering sederhana</td><td>9 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>10</td><td>30 Agustus 2026</td><td>Bakti sosial dan membersihkan lingkungan</td><td>10 orang</td><td>Lingkungan sekitar pangkalan</td><td>Baksos</td></tr>
+            <tr><td>11</td><td>4 September 2026</td><td>Latihan menaksir tinggi dan jarak</td><td>10 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>12</td><td>11 September 2026</td><td>Latihan morse dan sandi kotak</td><td>9 orang</td><td>Sekretariat Sambarata</td><td>Latihan rutin</td></tr>
+            <tr><td>13</td><td>13 September 2026</td><td>Jelajah alam dan pengenalan medan</td><td>10 orang</td><td>Jelajah sekitar pangkalan</td><td>Jelajah</td></tr>
+            <tr><td>14</td><td>18 September 2026</td><td>Latihan semaphore dan ketepatan gerakan</td><td>10 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>15</td><td>20 September 2026</td><td>Latihan gabungan dengan Prabadi Scout</td><td>10 orang</td><td>Pangkalan Albaidhy</td><td>Latihan gabungan</td></tr>
+            <tr><td>16</td><td>25 September 2026</td><td>Latihan membuat peta pita</td><td>10 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>17</td><td>9 Oktober 2026</td><td>Latihan pionering dan ikatan</td><td>10 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>18</td><td>16 Oktober 2026</td><td>Latihan yel-yel dan kekompakan regu</td><td>9 orang</td><td>Halaman Khairul Ulum</td><td>Latihan rutin</td></tr>
+            <tr><td>19</td><td>17 Oktober 2026</td><td>Menghadiri undangan Prabadi Scout</td><td>8 orang</td><td>Pangkalan Prabadi Scout</td><td>Undangan</td></tr>
+            <tr><td>20</td><td>20 Oktober 2026</td><td>Menjadi pengisi materi kepramukaan di SD</td><td>6 orang</td><td>SD Tambelangan 1</td><td>Pengabdian</td></tr>
+            <tr><td>21</td><td>22 Oktober 2026</td><td>Rapat persiapan dan pembagian tugas regu</td><td>10 orang</td><td>Sekretariat Sambarata</td><td>Rapat regu</td></tr>
+            <tr><td>22</td><td>23 Oktober 2026</td><td>Latihan sandi-sandi dan pemecahan pesan</td><td>8 orang</td><td>Pangkalan Khairul Ulum</td><td>Latihan rutin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 5. TANDA BUKTI PEMBAYARAN -->
+    <article class="glass admin-sec reveal" data-tilt="off">
+      <h3><i class="fa-solid fa-receipt"></i> Tanda Bukti Pembayaran Registrasi</h3>
+      <div class="grid-img" style="grid-template-columns: 1fr; max-width: 600px; margin: 15px auto 0;">
+        <div class="img-box">
+          <img src="assets/pembayaran.png" alt="Bukti Pembayaran Registrasi PARISADA XXI" onerror="this.src='https://via.placeholder.com/700x450/1a0d0f/ff7a1a?text=Kuitansi+Bukti+Pembayaran+Lunas'">
+          <span>Bukti Transfer Pembayaran PARISADA XXI 2026</span>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

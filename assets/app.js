@@ -1,5 +1,12 @@
 (function(){
-  const pages=[["index.html","Regu Charizard"],["anggota.html","Anggota"],["bindamping.html","Bindamping"],["sambarata.html","Sambarata"],["parisada.html","Tentang PARISADA"]];
+  const pages=[
+    ["index.html","Regu Charizard"],
+    ["administrasi.html","Administrasi"],
+    ["anggota.html","Anggota"],
+    ["bindamping.html","Bindamping"],
+    ["sambarata.html","Sambarata"],
+    ["parisada.html","Tentang PARISADA"]
+  ];
   const cur=document.body.dataset.page;
 
   // layout shell
