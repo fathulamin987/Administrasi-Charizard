@@ -46,6 +46,66 @@
     color: var(--orange);
     border: 1px solid rgba(225, 29, 46, 0.4);
   }
+
+  /* Styling Foto Kebersamaan Regu (Presisi Ukuran 3R / 1280x960) */
+  .regu-photo-wrap {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+  .regu-photo-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .regu-photo-title i {
+    color: var(--orange);
+  }
+  .regu-photo-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .regu-photo-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .regu-photo-card:hover img {
+    transform: scale(1.03);
+  }
+  .regu-photo-caption {
+    position: absolute;
+    bottom: 0;
+    inset-x: 0;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .regu-photo-caption span {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    font-weight: 700;
+  }
+  .regu-photo-caption b {
+    font-size: 14px;
+    color: #fff;
+  }
 </style>
 </head>
 <body data-page="index.html">
@@ -59,15 +119,15 @@
          tangguh, dan meraih prestasi di ajang PARISADA XXI Jawa Timur 2026.</p>
       
       <div class="cta reveal" style="--d:300ms">
-        <a class="btn primary" href="administrasi.html"><i class="fa-solid fa-folder-open"></i> Berkas Administrasi</a>
-        <a class="btn ghost" href="anggota.html"><i class="fa-solid fa-users"></i> Lihat Anggota</a>
+        <a class="btn primary" href="anggota.html"><i class="fa-solid fa-users"></i> Lihat Anggota</a>
         <a class="btn ghost" href="bindamping.html"><i class="fa-solid fa-user-tie"></i> Lihat Bindamping</a>
+        <a class="btn ghost" href="administrasi.html"><i class="fa-solid fa-folder-open"></i> Berkas Administrasi</a>
       </div>
 
       <!-- Teks Petunjuk Khusus Layar HP -->
-     <p class="mobile-menu-hint reveal" style="--d:400ms">
-      <i class="fa-solid fa-circle-info"></i> Akses menu lainnya dengan menekan ikon garis 3 di pojok kanan atas pada portal ini.
-    </p>
+      <p class="mobile-menu-hint reveal" style="--d:400ms">
+        <i class="fa-solid fa-circle-info"></i> Akses menu lainnya dengan menekan ikon garis 3 di pojok kanan atas pada portal ini.
+      </p>
     
     </div>
     <div class="orb reveal" style="--d:200ms"><div class="glow"></div><div class="ring r1"></div><div class="ring r2"></div><img class="core logo-hero" src="assets/logo.png" alt="Logo Regu Charizard"></div>
@@ -84,7 +144,7 @@
   <div class="sec-head reveal" style="margin-top:60px">
     <div class="eyebrow">Profil Resmi</div>
     <h2>Biodata <span class="grad-text">Regu</span></h2>
-    <p>Informasi Pangkalan &amp; Struktur Anggota Regu Charizard</p>
+    <p>Informasi Regu Charizard</p>
   </div>
 
   <article class="glass about reveal" data-tilt="off">
@@ -94,7 +154,6 @@
       </div>
       <div>
         <h3>BIODATA REGU</h3>
-        <span>Sambarata Scout – Khairul Ulum</span>
       </div>
     </div>
 
@@ -105,7 +164,7 @@
     </div>
 
     <div style="margin-top:28px; overflow-x:auto;">
-      <h4 style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:10px;"><i class="fa-solid fa-users-rectangle" style="color:var(--orange); margin-right:8px;"></i>Daftar Peserta Regu</h4>
+      <h4 style="font-size:15px; font-weight:700; color:var(--text); margin-bottom:10px;"><i class="fa-solid fa-users-rectangle" style="color:var(--orange); margin-right:8px;"></i>Daftar Anggota Regu</h4>
       <table class="regu-table">
         <thead>
           <tr>
@@ -127,6 +186,20 @@
           <tr><td>10.</td><td>M Ramadani</td><td><span class="badge-role">Anggota</span></td></tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- Foto Kebersamaan Regu -->
+    <div class="regu-photo-wrap">
+      <h4 class="regu-photo-title">
+        <i class="fa-solid fa-camera-retro"></i> Foto Regu
+      </h4>
+      <div class="regu-photo-card">
+        <img src="assets/foto-regu.jpeg" alt="Foto Kebersamaan Regu Charizard PARISADA XXI">
+        <div class="regu-photo-caption">
+          <span>PARISADA XXI Jawa Timur 2026</span>
+          <b>Regu Charizard</b>
+        </div>
+      </div>
     </div>
   </article>
 
